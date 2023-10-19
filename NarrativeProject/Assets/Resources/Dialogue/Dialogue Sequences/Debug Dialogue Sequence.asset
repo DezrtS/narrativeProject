@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
+  m_Name: Debug Dialogue Sequence
+  m_EditorClassIdentifier: 
+  canSkipSequenceDialogue: 1
+  canSkipSequence: 0
+  dialogueSequence:
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (1)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (2)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (3)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (4)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (5)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (6)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (7)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
+    dialogueLine: This is a line of dialogue. (8)
+    dialogueEvents: []
+  choiceNode:
+    choices: []
