@@ -24,6 +24,8 @@ public enum MovementEffectType
 // Screen Shake     ->      <ss(s)>         </ss>   [Is Currently Not Implemented] (s = Strength)
 // Typewriter Speed ->      <sp(s)>         </sp>   (s = Speed)
 
+// Audio Event      ->      <ae(e)>                 (e = Event [String])
+
 public class DialogueEffectManager
 {
     public List<MovementEffect> movementEffectIndexes = new List<MovementEffect>();
@@ -31,6 +33,7 @@ public class DialogueEffectManager
     public List<BasicEffect> typeWriterSpeedEffectIndexes = new List<BasicEffect>();
     public List<BasicEffect> sizeEffectIndexes = new List<BasicEffect>();
     public List<ColorEffect> colorEffectIndexes = new List<ColorEffect>();
+    public List<AudioEffect> audioEffectsIndexes = new List<AudioEffect>();
 
     private bool ranOneTimeEffects = false;
 
@@ -103,6 +106,17 @@ public class DialogueEffectManager
             if (ssEffect.effectIndex == index)
             {
                 //Trigger Screen Shake
+            }
+        }
+    }
+
+    public void ApplyAudioEffect(int index)
+    {
+        foreach (AudioEffect aEffect in audioEffectsIndexes)
+        {
+            if (aEffect.effectIndex == index)
+            {
+                AudioManager.Instance.PlayOneShot(FMODEventManager.Instance.GetEventReferenceFromID(aEffect.effectValue), Vector3.zero);
             }
         }
     }
@@ -182,6 +196,7 @@ public class DialogueEffectManager
         typeWriterSpeedEffectIndexes.Clear();
         sizeEffectIndexes.Clear();
         colorEffectIndexes.Clear();
+        audioEffectsIndexes.Clear();
 
         ranOneTimeEffects = false;
         originalTextPositions.Clear();
@@ -198,6 +213,7 @@ public class DialogueEffectManager
         bool typeWriterSpeedEffect = false;
         bool sizeEffect = false;
         bool colorEffect = false;
+        bool audioEffect = false;
 
         float waveStrength = 1;
         float shakeStrength = 1;
@@ -205,6 +221,7 @@ public class DialogueEffectManager
         float screenShakeStrength = 1;
         float typeWriterSpeed = 1;
         float size = 1;
+        string audioID = "";
         Color color = Color.black;
 
         string formattedText = "";
@@ -287,6 +304,10 @@ public class DialogueEffectManager
                     case "<sp>":
                         typeWriterSpeedEffect = true;
                         typeWriterSpeed = float.Parse(data.Substring(1, data.Length - 2));
+                        break;
+                    case "<ae>":
+                        audioEffect = true;
+                        audioID = data.Substring(1, data.Length - 2);
                         break;
                     case "</w>":
                         waveEffect = false;
@@ -384,6 +405,15 @@ public class DialogueEffectManager
                     spEffect.effectValue = typeWriterSpeed;
                     typeWriterSpeedEffectIndexes.Add(spEffect);
                 }
+
+                if (audioEffect)
+                {
+                    AudioEffect aEffect = new AudioEffect();
+                    aEffect.effectIndex = i - skipIndexes;
+                    aEffect.effectValue = audioID;
+                    audioEffectsIndexes.Add(aEffect);
+                    audioEffect = false;
+                }
             }
         }
 
@@ -410,4 +440,10 @@ public class ColorEffect
 {
     public int effectIndex;
     public Color effectColor = Color.white;
+}
+
+public class AudioEffect
+{
+    public int effectIndex;
+    public string effectValue;
 }

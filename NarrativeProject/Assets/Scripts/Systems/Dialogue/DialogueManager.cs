@@ -196,6 +196,7 @@ public class DialogueManager : Singleton<DialogueManager>
             else
             {
                 dialogueEffectManager.ApplyScreenShakeEffect(currentIndex);
+                dialogueEffectManager.ApplyAudioEffect(currentIndex);
 
                 if (CharacterTypingData.longPauseCharacters.Contains(currentCharacter))
                 {
