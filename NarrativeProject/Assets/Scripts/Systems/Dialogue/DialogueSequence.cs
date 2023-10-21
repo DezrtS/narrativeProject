@@ -47,11 +47,13 @@ public class Choice
 [CreateAssetMenu(menuName = "Scriptable Objects/Dialogue/Dialogue Sequence")]
 public class DialogueSequence : ScriptableObject
 {
+    [SerializeField] private string sequenceID;
     [SerializeField] private bool canSkipSequenceDialogue = true;
     [SerializeField] private bool canSkipSequence = false;
     [SerializeField] private List<DialogueNode> dialogueSequence = new List<DialogueNode>();
     [SerializeField] private ChoiceNode choiceNode;
 
+    public string SequenceID { get { return sequenceID; } }
     public bool CanSkipSequenceDialogue { get { return canSkipSequenceDialogue; } }
     public bool CanSkipSequence { get { return canSkipSequence; } }
     public List<DialogueNode> DialogueNodes { get { return dialogueSequence; } }

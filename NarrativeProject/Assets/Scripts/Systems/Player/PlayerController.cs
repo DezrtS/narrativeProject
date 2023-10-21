@@ -85,7 +85,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition.ReadValue<Vector2>());
 
-        if (Physics.Raycast(mouseRay, out RaycastHit hit, 25f, roomTriggerLayer, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(mouseRay, out RaycastHit hit, 50f, roomTriggerLayer, QueryTriggerInteraction.Ignore))
         {
             selectedRoom = hit.transform.GetComponent<RoomSelectionTrigger>();
 

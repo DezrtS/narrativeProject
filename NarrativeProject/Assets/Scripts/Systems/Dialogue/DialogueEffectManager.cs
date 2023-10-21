@@ -305,7 +305,7 @@ public class DialogueEffectManager
                         typeWriterSpeedEffect = true;
                         typeWriterSpeed = float.Parse(data.Substring(1, data.Length - 2));
                         break;
-                    case "<ae>":
+                    case "<a>":
                         audioEffect = true;
                         audioID = data.Substring(1, data.Length - 2);
                         break;

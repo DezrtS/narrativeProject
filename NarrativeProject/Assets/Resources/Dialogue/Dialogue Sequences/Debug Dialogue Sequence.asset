@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
   m_Name: Debug Dialogue Sequence
   m_EditorClassIdentifier: 
+  sequenceID: debug_sequence
   canSkipSequenceDialogue: 1
   canSkipSequence: 0
   dialogueSequence:
@@ -25,7 +26,7 @@ MonoBehaviour:
     dialogueLine: This is a line of dialogue. (3)
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
-    dialogueLine: This is a line <ae(clue)>of <c(1,0,0,1)><w(3)>DIALOGUE</w></c>.
+    dialogueLine: This is a line <a(clue)>of <c(1,0,0,1)><w(3)>DIALOGUE</w></c>.
       (4)
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
