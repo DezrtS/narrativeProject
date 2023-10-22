@@ -51,12 +51,18 @@ public class JournalManager : Singleton<JournalManager>
                 HideJournal();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            NPCStatsManager.Instance.UnlockNPCStat("initial_clue");
+        }
     }
 
     public void DisplayJournal()
     {
         journalGameobject.SetActive(true);
         isJournalActive = true;
+        PlayerController.Instance.journalMode = isJournalActive;
 
         LoadPageEntry(currentJournalPage, leftPage);
         LoadPageEntry(currentJournalPage + 1, rightPage);
@@ -67,6 +73,7 @@ public class JournalManager : Singleton<JournalManager>
         StopAllCoroutines();
         journalGameobject.SetActive(false);
         isJournalActive = false;
+        PlayerController.Instance.journalMode = isJournalActive;
         isTurning = false;
         isTurningToPage = false;
         turningPage.DisablePage();
@@ -96,6 +103,11 @@ public class JournalManager : Singleton<JournalManager>
 
     public void TurnToPage(int pageNumber, float timeMultiplier)
     {
+        if (pageNumber == currentJournalPage || isTurningToPage)
+        {
+            return;
+        }
+
         StartCoroutine(AnimateTurnToPage(pageNumber, timeMultiplier));
     }
 
@@ -134,8 +146,6 @@ public class JournalManager : Singleton<JournalManager>
     {
         bool forwards;
 
-
-
         if (pageNumber > currentJournalPage)
         {
             forwards = true;
@@ -149,7 +159,7 @@ public class JournalManager : Singleton<JournalManager>
         {
             isTurningToPage = true;
 
-            while (currentJournalPage != pageNumber)
+            while (currentJournalPage != pageNumber && currentJournalPage != pageNumber - 1)
             {
                 yield return null;
 

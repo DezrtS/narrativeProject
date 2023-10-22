@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Dialogue/Dialogue Event")]
 public class DialogueEvent : ScriptableObject
 {
     public virtual void TriggerEvent()

@@ -14,6 +14,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private RoomSelectionTrigger selectedRoom;
     private bool mapMode = true;
+    public bool journalMode = false;
 
     private void OnEnable()
     {
@@ -83,6 +84,11 @@ public class PlayerController : Singleton<PlayerController>
 
     public void OnRoomSelect(InputAction.CallbackContext obj)
     {
+        if (journalMode)
+        {
+            return;
+        }
+
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition.ReadValue<Vector2>());
 
         if (Physics.Raycast(mouseRay, out RaycastHit hit, 50f, roomTriggerLayer, QueryTriggerInteraction.Ignore))
@@ -113,6 +119,11 @@ public class PlayerController : Singleton<PlayerController>
 
     public void OnInteract(InputAction.CallbackContext obj)
     {
+        if (journalMode)
+        {
+            return;
+        }
+
         Debug.Log("Interacted");
     }
 }

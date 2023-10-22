@@ -11,5 +11,10 @@ public class JournalPageData : ScriptableObject
 
     public string JournalDataID { get { return journalDataID; } }
     public string JournalDataTitle { get {  return journalDataTitle; } }
-    public string JournalDataContent { get {  return journalDataContent; } }
+    public string JournalDataContent { get {  return GetJournalDataContent(); } }
+
+    public virtual string GetJournalDataContent()
+    {
+        return journalDataContent;
+    }
 }

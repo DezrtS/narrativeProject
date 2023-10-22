@@ -15,11 +15,15 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private GameObject dialogueObject;
 
     [SerializeField] private GameObject choiceButton;
+    [SerializeField] private GameObject choiceHolder;
 
     [SerializeField] private TextMeshProUGUI dialogueSpeakerUI;
     [SerializeField] private TextMeshProUGUI dialogueUI;
 
     [SerializeField] private DialogueSequence tempSequence;
+
+    private List<GameObject> activeChoices = new List<GameObject>();
+
     private DialogueSequence currentDialogueSequence;
     private int currentDialogueIndex = 0;
 
@@ -43,7 +47,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         if (!dialogueObject.activeSelf)
         {
-            return;
+            dialogueObject.SetActive(true);
         }
 
         if (currentDialogueSequence == null)
@@ -114,6 +118,8 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void SwitchToDialogueSequence(DialogueSequence dialogueSequence)
     {
+
+
         if (dialogueSequence != null)
         {
             currentDialogueSequence = dialogueSequence;
@@ -142,6 +148,7 @@ public class DialogueManager : Singleton<DialogueManager>
             OnDialogueEnd?.Invoke();
             currentDialogueSequence = null;
             currentDialogueIndex = 0;
+            dialogueObject.SetActive(false);
         }
     }
 
@@ -169,14 +176,61 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         isChoosing = true;
 
-        int offset = 0;
+        int offset = 75;
 
         foreach (Choice choice in currentDialogueSequence.ChoiceNode.Choices)
         {
-            GameObject button = Instantiate(choiceButton, dialogueUI.transform.parent);
-            button.transform.position = button.transform.position + new Vector3(0, offset, 0);
+            if (choice.DialogueCondition != null)
+            {
+                if (!choice.DialogueCondition.CanTrigger())
+                {
+                    continue;
+                }
+            }
+
+            GameObject button = Instantiate(choiceButton, choiceHolder.transform);
+            activeChoices.Add(button);
+            button.GetComponent<DialogueChoice>().Choice = choice;
+            RectTransform rect = button.GetComponent<RectTransform>();
+            rect.localPosition = new Vector3(0, offset, 0);
             button.GetComponentInChildren<TextMeshProUGUI>().text = choice.ChoicePreview;
-            offset = offset - 75;
+            offset = offset + 100;
+        }
+    }
+
+    public void ActivateChoice(Choice choice)
+    {
+        if (isChoosing && currentDialogueSequence.ChoiceNode.Choices.Contains(choice))
+        {
+            isChoosing = false;
+
+            if (choice.DialogueEvent != null)
+            {
+                choice.DialogueEvent.TriggerEvent();
+            }
+
+            if (choice.ChoiceDialogueSequence != null)
+            {
+                DestroyActiveChoices();
+                SwitchToDialogueSequence(choice.ChoiceDialogueSequence);
+                return;
+            }
+
+            DestroyActiveChoices();
+            EndDialogueSequence();
+        }
+    }
+
+    public void DestroyActiveChoices()
+    {
+        int count = 0;
+
+        while (activeChoices.Count > 0 && count < 100)
+        {
+            GameObject choice = activeChoices[0];
+            activeChoices.RemoveAt(0);
+            Destroy(choice);
+            count++;
         }
     }
 

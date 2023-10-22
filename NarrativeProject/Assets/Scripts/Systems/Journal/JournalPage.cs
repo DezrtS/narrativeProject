@@ -17,7 +17,7 @@ public class JournalPage : MonoBehaviour
     private RectTransform pageRectTransform;
     private Image pageImage;
 
-    private void Start()
+    private void Awake()
     {
         pageRectTransform = GetComponent<RectTransform>();
         pageImage = GetComponent<Image>();

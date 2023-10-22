@@ -29,17 +29,13 @@ MonoBehaviour:
     dialogueLine: This is a line <a(clue)>of <c(1,0,0,1)><w(3)>DIALOGUE</w></c>.
       (4)
     dialogueEvents: []
-  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
-    dialogueLine: This is a line of dialogue. (5)
-    dialogueEvents: []
-  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
-    dialogueLine: This is a line of dialogue. (6)
-    dialogueEvents: []
-  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
-    dialogueLine: This is a line of dialogue. (7)
-    dialogueEvents: []
-  - dialogueSpeaker: {fileID: 11400000, guid: 7c3f095649fb086498076f9e42d3370c, type: 2}
-    dialogueLine: This is a line of dialogue. (8)
-    dialogueEvents: []
   choiceNode:
-    choices: []
+    choices:
+    - choicePreview: Yes
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000}
+    - choicePreview: No
+      dialogueEvent: {fileID: 11400000, guid: f137099e06f4d70418dd55c72616e448, type: 2}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}
