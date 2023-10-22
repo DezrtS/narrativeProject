@@ -12,6 +12,8 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public event DialogueCallback OnDialogueSequenceEnd;
 
+    [SerializeField] private GameObject dialogueObject;
+
     [SerializeField] private GameObject choiceButton;
 
     [SerializeField] private TextMeshProUGUI dialogueSpeakerUI;
@@ -39,6 +41,11 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void StartDialogueSequence(DialogueSequence dialogueSequence)
     {
+        if (!dialogueObject.activeSelf)
+        {
+            return;
+        }
+
         if (currentDialogueSequence == null)
         {
             dialogueSpeakerUI.enabled = true;
@@ -62,11 +69,19 @@ public class DialogueManager : Singleton<DialogueManager>
             AdvanceDialogue();
         }
 
-        dialogueEffectManager.ApplyEffects(dialogueUI);
+        if (isTyping || isMaintaining)
+        {
+            dialogueEffectManager.ApplyEffects(dialogueUI);
+        }
     }
 
     public void AdvanceDialogue()
     {
+        if (!dialogueObject.activeSelf)
+        {
+            return;
+        }
+
         if (currentDialogueSequence != null && !isChoosing)
         {
             if (isTyping)

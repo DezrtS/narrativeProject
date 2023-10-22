@@ -18,6 +18,7 @@ public class FMODEventManager : Singleton<FMODEventManager>
 
     [field: Header("UI SFX")]
     [field: SerializeField] public FMODAudioEvent Clue { get; private set; }
+    [field: SerializeField] public FMODAudioEvent PageTurn { get; private set; }
 
     [field: Header("Misc SFX")]
     [field: SerializeField] public FMODAudioEvent Invalid { get; private set; }

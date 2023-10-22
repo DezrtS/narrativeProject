@@ -37,7 +37,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public void PlayOneShot(EventReference sound, Vector3 worldPosition)
     {
-        Debug.Log("Playing Audio");
+        //Debug.Log("Playing Audio");
 
         RuntimeManager.PlayOneShot(sound, worldPosition);
     }
