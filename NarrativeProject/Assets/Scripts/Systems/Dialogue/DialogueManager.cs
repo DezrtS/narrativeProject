@@ -40,7 +40,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void Start()
     {
-        StartDialogueSequence(tempSequence);
+        //StartDialogueSequence(tempSequence);
     }
 
     public void StartDialogueSequence(DialogueSequence dialogueSequence)
@@ -68,6 +68,11 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            StartDialogueSequence(tempSequence);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             AdvanceDialogue();

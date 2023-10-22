@@ -7,6 +7,9 @@ public class PlayerController : Singleton<PlayerController>
 {
     [SerializeField] private LayerMask roomTriggerLayer;
 
+    [SerializeField] private float playerSpeed;
+    [SerializeField] private float playerLookSpeed;
+
     private PlayerInputControls playerInputControls;
     private InputAction WASD;
     private InputAction mouseDelta;
@@ -15,6 +18,14 @@ public class PlayerController : Singleton<PlayerController>
     private RoomSelectionTrigger selectedRoom;
     private bool mapMode = true;
     public bool journalMode = false;
+    public bool dialogueMode = false;
+
+    private CharacterController characterController;
+
+    private void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
 
     private void OnEnable()
     {
@@ -67,7 +78,7 @@ public class PlayerController : Singleton<PlayerController>
         mouseDelta.Disable();
 
         playerInputControls.PlayerControls.Interact.performed -= OnInteract;
-        playerInputControls.PlayerControls.EnterRoomSelection.Disable();
+        playerInputControls.PlayerControls.Interact.Disable();
     }
 
     private void EnablePlayerControls()
@@ -125,5 +136,34 @@ public class PlayerController : Singleton<PlayerController>
         }
 
         Debug.Log("Interacted");
+    }
+
+    public Vector2 GetMovementInput()
+    {
+        if (mapMode || journalMode || dialogueMode)
+        {
+            return Vector2.zero;
+        }
+
+        return WASD.ReadValue<Vector2>();
+    }
+
+    public float GetRotationInput()
+    {
+        if (mapMode || journalMode || dialogueMode)
+        {
+            return 0;
+        }
+        
+        return mouseDelta.ReadValue<Vector2>().x;
+    }
+
+    private void Update()
+    {
+        Vector2 currentInput = GetMovementInput();
+        float rotationInput = GetRotationInput();
+
+        characterController.Move((transform.right * currentInput.x + transform.forward * currentInput.y) * playerSpeed * Time.deltaTime);
+        transform.eulerAngles += new Vector3(0, rotationInput * playerLookSpeed * Time.deltaTime, 0);
     }
 }
