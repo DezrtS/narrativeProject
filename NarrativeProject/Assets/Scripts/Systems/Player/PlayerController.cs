@@ -9,6 +9,9 @@ public class PlayerController : Singleton<PlayerController>
 
     [SerializeField] private float playerSpeed;
     [SerializeField] private float playerLookSpeed;
+    [SerializeField] private GameObject cameraPivot;
+
+    [SerializeField] private GameObject crosshair;
 
     private PlayerInputControls playerInputControls;
     private InputAction WASD;
@@ -16,9 +19,12 @@ public class PlayerController : Singleton<PlayerController>
     private InputAction mousePosition;
 
     private RoomSelectionTrigger selectedRoom;
-    private bool mapMode = true;
+    public bool mapMode = true;
     public bool journalMode = false;
     public bool dialogueMode = false;
+    public bool interactableMode = false;
+
+    private float yRotation = 0;
 
     private CharacterController characterController;
 
@@ -74,6 +80,9 @@ public class PlayerController : Singleton<PlayerController>
 
     private void DisablePlayerControls()
     {
+        Cursor.lockState = CursorLockMode.None;
+        crosshair.SetActive(false);
+
         WASD.Disable();
         mouseDelta.Disable();
 
@@ -83,6 +92,9 @@ public class PlayerController : Singleton<PlayerController>
 
     private void EnablePlayerControls()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        crosshair.SetActive(true);
+
         WASD = playerInputControls.PlayerControls.Movement;
         WASD.Enable();
 
@@ -95,7 +107,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void OnRoomSelect(InputAction.CallbackContext obj)
     {
-        if (journalMode)
+        if (journalMode || interactableMode || dialogueMode)
         {
             return;
         }
@@ -130,7 +142,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void OnInteract(InputAction.CallbackContext obj)
     {
-        if (journalMode)
+        if (journalMode || interactableMode || dialogueMode)
         {
             return;
         }
@@ -140,7 +152,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public Vector2 GetMovementInput()
     {
-        if (mapMode || journalMode || dialogueMode)
+        if (mapMode || journalMode || dialogueMode || interactableMode)
         {
             return Vector2.zero;
         }
@@ -148,22 +160,25 @@ public class PlayerController : Singleton<PlayerController>
         return WASD.ReadValue<Vector2>();
     }
 
-    public float GetRotationInput()
+    public Vector2 GetRotationInput()
     {
-        if (mapMode || journalMode || dialogueMode)
+        if (mapMode || journalMode || dialogueMode || interactableMode)
         {
-            return 0;
+            return Vector2.zero;
         }
         
-        return mouseDelta.ReadValue<Vector2>().x;
+        return mouseDelta.ReadValue<Vector2>();
     }
 
     private void Update()
     {
         Vector2 currentInput = GetMovementInput();
-        float rotationInput = GetRotationInput();
+        Vector2 rotationInput = GetRotationInput();
 
         characterController.Move((transform.right * currentInput.x + transform.forward * currentInput.y) * playerSpeed * Time.deltaTime);
-        transform.eulerAngles += new Vector3(0, rotationInput * playerLookSpeed * Time.deltaTime, 0);
+        transform.eulerAngles += new Vector3(0, rotationInput.x * playerLookSpeed * Time.deltaTime, 0);
+
+        yRotation = Mathf.Clamp(yRotation + -rotationInput.y * (playerLookSpeed * 0.5f) * Time.deltaTime, -80, 80);
+        cameraPivot.transform.localEulerAngles = new Vector3(yRotation, 0, 0);
     }
 }

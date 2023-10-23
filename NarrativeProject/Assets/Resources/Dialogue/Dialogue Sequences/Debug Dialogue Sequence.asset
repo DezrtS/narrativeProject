@@ -39,3 +39,11 @@ MonoBehaviour:
       dialogueEvent: {fileID: 11400000, guid: f137099e06f4d70418dd55c72616e448, type: 2}
       dialogueCondition: {fileID: 0}
       choiceDialogueSequence: {fileID: 0}
+    - choicePreview: Maybe
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}
+    - choicePreview: Not Really
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}

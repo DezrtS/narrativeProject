@@ -11,6 +11,13 @@ public class UnlockEvent : DialogueEvent
 
     public override void TriggerEvent()
     {
-        NPCStatsManager.Instance.UnlockNPCStat(unlockId);
+        if (isForJournal)
+        {
+            NPCStatsManager.Instance.UnlockNPCStat(unlockId);
+        } 
+        else
+        {
+
+        }
     }
 }

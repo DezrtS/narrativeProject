@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
@@ -14,9 +15,11 @@ public class DialogueManager : Singleton<DialogueManager>
 
     [SerializeField] private GameObject dialogueObject;
 
+    [SerializeField] private GameObject choiceBackground;
     [SerializeField] private GameObject choiceButton;
     [SerializeField] private GameObject choiceHolder;
 
+    [SerializeField] private GameObject dialogueHolder;
     [SerializeField] private TextMeshProUGUI dialogueSpeakerUI;
     [SerializeField] private TextMeshProUGUI dialogueUI;
 
@@ -38,6 +41,17 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private DialogueEffectManager dialogueEffectManager = new DialogueEffectManager();
 
+    private Animator choiceBackgroundAnimator;
+    private Animator dialogueHolderAnimator;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        choiceBackgroundAnimator = choiceBackground.GetComponent<Animator>();
+        dialogueHolderAnimator = dialogueHolder.GetComponent<Animator>();
+    }
+
     private void Start()
     {
         //StartDialogueSequence(tempSequence);
@@ -52,11 +66,13 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if (currentDialogueSequence == null)
         {
-            dialogueSpeakerUI.enabled = true;
-            dialogueUI.enabled = true;
+            //dialogueSpeakerUI.enabled = true;
+            //dialogueUI.enabled = true;
             OnDialogueStart?.Invoke();
             currentDialogueSequence = dialogueSequence;
             currentDialogueIndex = 0;
+
+            dialogueHolderAnimator.SetBool("Show", true);
             DisplayDialogue(dialogueSpeakerUI, dialogueUI, currentDialogueSequence.DialogueNodes[currentDialogueIndex].DialogueLine);
         } 
         else
@@ -73,7 +89,7 @@ public class DialogueManager : Singleton<DialogueManager>
             StartDialogueSequence(tempSequence);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !PlayerController.Instance.journalMode)
         {
             AdvanceDialogue();
         }
@@ -148,12 +164,14 @@ public class DialogueManager : Singleton<DialogueManager>
                 StopAllCoroutines();
             }
 
-            dialogueSpeakerUI.enabled = false;
-            dialogueUI.enabled = false;
+            dialogueHolderAnimator.SetBool("Show", false);
+
+            //dialogueSpeakerUI.enabled = false;
+            //dialogueUI.enabled = false;
             OnDialogueEnd?.Invoke();
             currentDialogueSequence = null;
             currentDialogueIndex = 0;
-            dialogueObject.SetActive(false);
+            //dialogueObject.SetActive(false);
         }
     }
 
@@ -179,28 +197,14 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void DisplayChoices()
     {
+        if (isChoosing)
+        {
+            return;
+        }
+
         isChoosing = true;
 
-        int offset = 75;
-
-        foreach (Choice choice in currentDialogueSequence.ChoiceNode.Choices)
-        {
-            if (choice.DialogueCondition != null)
-            {
-                if (!choice.DialogueCondition.CanTrigger())
-                {
-                    continue;
-                }
-            }
-
-            GameObject button = Instantiate(choiceButton, choiceHolder.transform);
-            activeChoices.Add(button);
-            button.GetComponent<DialogueChoice>().Choice = choice;
-            RectTransform rect = button.GetComponent<RectTransform>();
-            rect.localPosition = new Vector3(0, offset, 0);
-            button.GetComponentInChildren<TextMeshProUGUI>().text = choice.ChoicePreview;
-            offset = offset + 100;
-        }
+        StartCoroutine(DisplayChoicesAnimation());
     }
 
     public void ActivateChoice(Choice choice)
@@ -208,6 +212,7 @@ public class DialogueManager : Singleton<DialogueManager>
         if (isChoosing && currentDialogueSequence.ChoiceNode.Choices.Contains(choice))
         {
             isChoosing = false;
+            choiceBackgroundAnimator.SetBool("Show", false);
 
             if (choice.DialogueEvent != null)
             {
@@ -319,6 +324,35 @@ public class DialogueManager : Singleton<DialogueManager>
             }
 
             textUI.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
+        }
+    }
+
+    public IEnumerator DisplayChoicesAnimation()
+    {
+        choiceBackgroundAnimator.SetBool("Show", true);
+        yield return new WaitForSeconds(1);
+
+        int offset = 0;
+
+        foreach (Choice choice in currentDialogueSequence.ChoiceNode.Choices)
+        {
+            if (choice.DialogueCondition != null)
+            {
+                if (!choice.DialogueCondition.CanTrigger())
+                {
+                    continue;
+                }
+            }
+
+            GameObject button = Instantiate(choiceButton, choiceHolder.transform);
+            activeChoices.Add(button);
+            button.GetComponent<DialogueChoice>().Choice = choice;
+            RectTransform rect = button.GetComponent<RectTransform>();
+            rect.localPosition = new Vector3(0, offset, 0);
+            button.GetComponentInChildren<TextMeshProUGUI>().text = choice.ChoicePreview;
+            offset = offset + 100;
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

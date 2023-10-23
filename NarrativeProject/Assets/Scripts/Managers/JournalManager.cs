@@ -14,11 +14,22 @@ public class JournalManager : Singleton<JournalManager>
 
     [SerializeField] private List<JournalPageData> pageDatas = new List<JournalPageData>();
 
+    private Animator journalAnimator;
+
     private bool isJournalActive = false;
     private bool isTurning;
     private bool isTurningToPage = false;
     private int currentJournalPage = 0;
     private int maxPages = 25;
+
+    private bool isAnimating;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        journalAnimator = journalGameobject.GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -31,6 +42,11 @@ public class JournalManager : Singleton<JournalManager>
 
     private void Update()
     {
+        if (isAnimating)
+        {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.A) && !isTurningToPage)
         {
             TurnPage(false, 1);
@@ -60,7 +76,9 @@ public class JournalManager : Singleton<JournalManager>
 
     public void DisplayJournal()
     {
-        journalGameobject.SetActive(true);
+        StartCoroutine(DisplayJournalAnimation());
+
+        //journalGameobject.SetActive(true);
         isJournalActive = true;
         PlayerController.Instance.journalMode = isJournalActive;
 
@@ -70,13 +88,9 @@ public class JournalManager : Singleton<JournalManager>
 
     public void HideJournal()
     {
-        StopAllCoroutines();
-        journalGameobject.SetActive(false);
+        StartCoroutine(HideJournalAnimation());
+        //journalGameobject.SetActive(false);
         isJournalActive = false;
-        PlayerController.Instance.journalMode = isJournalActive;
-        isTurning = false;
-        isTurningToPage = false;
-        turningPage.DisablePage();
     }
 
     public void TurnPage(bool forwards, float timeMultiplier)
@@ -195,6 +209,27 @@ public class JournalManager : Singleton<JournalManager>
     private float SmoothValue(float startingTime, float timeTillCompletion)
     {
         return (0.5f * Mathf.Cos(((Time.timeSinceLevelLoad - startingTime - timeTillCompletion) * Mathf.PI) / timeTillCompletion) + 0.5f);
+    }
+
+    public IEnumerator DisplayJournalAnimation()
+    {
+        isAnimating = true;
+        journalAnimator.SetBool("Show", true);
+        yield return new WaitForSeconds(1);
+        isAnimating = false;
+    }
+
+    public IEnumerator HideJournalAnimation()
+    {
+        isAnimating = true;
+        journalAnimator.SetBool("Show", false);
+        yield return new WaitForSeconds(1);
+        isAnimating = false;
+        PlayerController.Instance.journalMode = isJournalActive;
+        isTurning = false;
+        isTurningToPage = false;
+        turningPage.DisablePage();
+        StopAllCoroutines();
     }
 
 }
