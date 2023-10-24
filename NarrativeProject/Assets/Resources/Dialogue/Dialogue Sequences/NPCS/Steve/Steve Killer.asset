@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
+  m_Name: Steve Killer
+  m_EditorClassIdentifier: 
+  sequenceID: steve_killer
+  canSkipSequenceDialogue: 1
+  canSkipSequence: 0
+  dialogueSequence:
+  - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
+    dialogueLine: Honestly, I'm not sure. I don't think anyone here is capable of
+      murder but...
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
+    dialogueLine: He had some "arguments" with certain people.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
+    dialogueLine: I hate saying this, but you might want to look into Annie and Flan.
+    dialogueEvents: []
+  choiceNode:
+    choices: []

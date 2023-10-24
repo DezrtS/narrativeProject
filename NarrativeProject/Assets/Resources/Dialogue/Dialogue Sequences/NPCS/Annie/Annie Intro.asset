@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
+  m_Name: Annie Intro
+  m_EditorClassIdentifier: 
+  sequenceID: annie_intro
+  canSkipSequenceDialogue: 0
+  canSkipSequence: 0
+  dialogueSequence:
+  - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
+    dialogueLine: Make it quick please.
+    dialogueEvents: []
+  choiceNode:
+    choices:
+    - choicePreview: Sorry, nevermind.
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}
+    - choicePreview: Describe your relationship with Elon.
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 9eafb40b9142928439f899d9b79810e9,
+        type: 2}
+    - choicePreview: Is there anything you can think of that can be important to
+        the case?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 69374d974f57dce4f999f5dd7b6e3893,
+        type: 2}
+    - choicePreview: What do you do for a living?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 0c8cb4a093fd77642bd245c4079a843b,
+        type: 2}
+    - choicePreview: When did you see Elon last?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 5d48fe2d42407f44990861fb0b75bf95,
+        type: 2}
+    - choicePreview: Who do you think killed Elon?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: c498ff0c721d3b248ac1a7d3fda3b526,
+        type: 2}
