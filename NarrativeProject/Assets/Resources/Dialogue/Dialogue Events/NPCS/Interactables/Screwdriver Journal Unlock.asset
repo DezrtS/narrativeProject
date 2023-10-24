@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25f609a51726ad14daf62ffe00ffae4b, type: 3}
-  m_Name: Journal Tutorial Unlock
+  m_Name: Screwdriver Journal Unlock
   m_EditorClassIdentifier: 
-  journalUnlockId: tutorial
-  journalPageData: {fileID: 11400000, guid: 569315910df1854448b50d8c3c0eed85, type: 2}
-  isItem: 0
+  journalUnlockId: screwdriver
+  journalPageData: {fileID: 11400000, guid: 9b3888d88b8e7f447892eccebe9e054a, type: 2}
+  isItem: 1
   condition: 0
   unlockConditionState: 1
   unlockJournalItem: 1

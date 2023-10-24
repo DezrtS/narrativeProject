@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a07cdd7774acc498f8b55bb3817539, type: 3}
+  m_Name: Wine
+  m_EditorClassIdentifier: 
+  journalDataID: wine
+  journalDataTitle: Wine Bottle
+  journalDataContent: '- Wine was provided to the guests at the dinner event
+
+    -
+    Most of the bottles are around half empty
+
+    - Most of the guests must have
+    consumed some amount of alcohol
+
+    - The alcohol could have affected their
+    ability to remain alert
+
+    - Drunk people aren''t exactly trust worthy'

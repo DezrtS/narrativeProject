@@ -81,15 +81,23 @@ public class JournalManager : Singleton<JournalManager>
 
         if (isItem)
         {
-            startIndex = 15;
+            startIndex = 10;
+        }
+
+        if (pageDatas.Contains(journalPageData))
+        {
+            Debug.Log($"Journal Already Contains {journalPageData.JournalDataID}");
+            return;
         }
 
         for (int i = startIndex; i < pageDatas.Count; i++)
         {
             if (pageDatas[i] == emptyJournalPageData)
             {
+
                 pageDatas.RemoveAt(i);
                 pageDatas.Insert(i, journalPageData);
+                return;
             }
         }
     }

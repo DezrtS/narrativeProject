@@ -10,16 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1a07cdd7774acc498f8b55bb3817539, type: 3}
-  m_Name: Tutorial
+  m_Name: Fuse Box
   m_EditorClassIdentifier: 
-  journalDataID: tutorial
-  journalDataTitle: Tutorial
-  journalDataContent: '- Use "Space" to progress through dialogue
-
-    - Press "Space"
-    while dialogue is typing to speed up dialogue
-
-    - Use "J" to pull up and close
-    the journal
-
-    - Use the "Left Mouse Button" to intereact with people or items'
+  journalDataID: fuse_box
+  journalDataTitle: Fuse Box
+  journalDataContent: "- Some wires were cut inside of the fuse box\n- It was most
+    likely used to turn off the power\n- The killer either cut the wires themselves
+    or had an accomplice cut them\n "

@@ -27,6 +27,7 @@ MonoBehaviour:
     dialogueLine: Do you want to go through the tutorial?
     dialogueEvents:
     - {fileID: 11400000, guid: 88a2522422f978c47acd3b1acbf587e7, type: 2}
+    - {fileID: 11400000, guid: a2893daf3f9dbd74589a8956c0e924dc, type: 2}
   choiceNode:
     choices:
     - choicePreview: Yes
