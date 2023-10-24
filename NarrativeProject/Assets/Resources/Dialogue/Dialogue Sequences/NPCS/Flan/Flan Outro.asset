@@ -20,4 +20,36 @@ MonoBehaviour:
     dialogueLine: Anything else?
     dialogueEvents: []
   choiceNode:
-    choices: []
+    choices:
+    - choicePreview: No, that's all.
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}
+    - choicePreview: When did you last see Elon?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 14a383706203df34e9d4b24ca4da23aa,
+        type: 2}
+      choiceDialogueSequence: {fileID: 11400000, guid: 995c3a1bf742cc4438c47d95ee52be8e,
+        type: 2}
+    - choicePreview: Who do you think did it?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 14a383706203df34e9d4b24ca4da23aa,
+        type: 2}
+      choiceDialogueSequence: {fileID: 11400000, guid: cb5403c7ddf7aad4b983529cb197429a,
+        type: 2}
+    - choicePreview: What was your relationship with Elon?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 71ceebcaf484c6d4fa8dc01ce0983634,
+        type: 2}
+    - choicePreview: Do you know anything about the rat poison in the kitchen?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 701f68f219a423e4587dc67472a4544b,
+        type: 2}
+      choiceDialogueSequence: {fileID: 11400000, guid: edc1f1bb41a0ad14e9aa229af512b0e4,
+        type: 2}
+    - choicePreview: Is there anything important to the case you can tell me?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 0a9b29f89489db54fac28b39e767d5de,
+        type: 2}

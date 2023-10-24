@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class FMODEventManager : Singleton<FMODEventManager>
 {
-    //[field: Header("Music")]
+    [field: Header("Music")]
+    [field: SerializeField] public FMODAudioEvent Music { get; private set; }
 
     //[field: Header("Ambience")]
 

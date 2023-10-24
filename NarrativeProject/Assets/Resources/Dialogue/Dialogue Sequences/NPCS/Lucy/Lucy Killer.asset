@@ -26,5 +26,9 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: d23867d66858d4540a1d24e7a55a3e46, type: 2}
     dialogueLine: I don't understand why she would go this far though.
     dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: d23867d66858d4540a1d24e7a55a3e46, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: cb02773cefbc3b54bbb9cacbb667de1b, type: 2}
   choiceNode:
     choices: []

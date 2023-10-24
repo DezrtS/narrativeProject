@@ -20,4 +20,34 @@ MonoBehaviour:
     dialogueLine: Was that all the questions you had?
     dialogueEvents: []
   choiceNode:
-    choices: []
+    choices:
+    - choicePreview: Yeah that's it.
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}
+    - choicePreview: How do you know Elon?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: d66d2716b031d8c40a5f7506f2743ab3,
+        type: 2}
+    - choicePreview: What do you do for a living?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: b8c51e0aedc62804cb337e45075516c1,
+        type: 2}
+    - choicePreview: When did you see Elon last?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 8d039b8d6d13fc14c8aa798bc225810a,
+        type: 2}
+    - choicePreview: Who do you think did the murder?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 406d3cc5f975fd14286628042cc39346,
+        type: 2}
+    - choicePreview: Did you send Elon a text message?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: e83b0df7d5dbe61498b0048f42e0ac6c,
+        type: 2}
+      choiceDialogueSequence: {fileID: 11400000, guid: 5612bb6dc512efe45bbedf6c244ad112,
+        type: 2}

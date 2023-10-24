@@ -78,6 +78,7 @@ public class InteractableManager : Singleton<InteractableManager>
 
     public IEnumerator DisplayInteractablePageAnimation()
     {
+        PlayerController.Instance.interactableMode = true;
         displayingPage = true;
         animatingPage = true;
         interactablesBackgroundAnimator.SetBool("Show", true);
@@ -94,6 +95,7 @@ public class InteractableManager : Singleton<InteractableManager>
         pageHolderAnimator.SetBool("Show", false);
         yield return new WaitForSeconds(1);
         animatingPage = false;
+        PlayerController.Instance.interactableMode = false;
 
         if (page != null)
         {

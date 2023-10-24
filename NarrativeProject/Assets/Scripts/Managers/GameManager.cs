@@ -9,6 +9,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private float timeLimit = 10;
 
+    [SerializeField] private GameObject endScreen;
+    private Animator endAnimator;
+
     public bool canAskAnnieKillerOpinion;
     public bool canAskBradKillerOpinion;
     public bool canAskFlanKillerOpinion;
@@ -27,6 +30,15 @@ public class GameManager : Singleton<GameManager>
 
     public bool timerRunning;
     private float timerTime;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        endScreen.SetActive(true);
+        endAnimator = endScreen.GetComponent<Animator>();
+        endScreen.SetActive(false);
+    }
 
     public void StartTimer()
     {
@@ -51,10 +63,18 @@ public class GameManager : Singleton<GameManager>
             {
                 timerText.text = "Time Left: 0";
                 timerRunning = false;
+                timer.SetActive(false);
                 LoadNextPart();
                 Debug.Log("Load Stuck in Room");
             }
         }
+    }
+
+    public void EndGame()
+    {
+        endScreen.SetActive(true);
+        endAnimator.SetBool("Block", true);
+        endAnimator.SetTrigger("Start");
     }
 
 

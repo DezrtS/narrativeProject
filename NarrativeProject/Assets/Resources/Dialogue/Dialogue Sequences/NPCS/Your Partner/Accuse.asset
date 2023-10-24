@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
+  m_Name: Accuse
+  m_EditorClassIdentifier: 
+  sequenceID: 
+  canSkipSequenceDialogue: 1
+  canSkipSequence: 0
+  dialogueSequence:
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Did you want to accuse someone now?
+    dialogueEvents: []
+  choiceNode:
+    choices:
+    - choicePreview: Yes
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 774f0b401c727794d9c02b54627e9119,
+        type: 2}
+    - choicePreview: No
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}

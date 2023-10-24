@@ -20,5 +20,9 @@ MonoBehaviour:
     dialogueLine: Well, we've been... friends for a long time. I'm his physician
       and routinely check in on him.
     dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: d23867d66858d4540a1d24e7a55a3e46, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: cb02773cefbc3b54bbb9cacbb667de1b, type: 2}
   choiceNode:
     choices: []

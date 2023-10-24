@@ -22,5 +22,9 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: 6b8c774a10d789c48bedf75d695fbdc8, type: 2}
     dialogueLine: He kind of had it coming.
     dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 6b8c774a10d789c48bedf75d695fbdc8, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: 5dbaa2da0da2e9041a9a3644ac2ba6a6, type: 2}
   choiceNode:
     choices: []

@@ -20,4 +20,36 @@ MonoBehaviour:
     dialogueLine: Need something?
     dialogueEvents: []
   choiceNode:
-    choices: []
+    choices:
+    - choicePreview: No, sorry.
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}
+    - choicePreview: How do you know Elon?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: 8200249459cd4f546bf77c60b2c87a30,
+        type: 2}
+    - choicePreview: Where were you when the murder happened?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000, guid: c020bd4e536c55548b0b8b3980915b3c,
+        type: 2}
+    - choicePreview: Who do you think did it?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: d694d7bc138b3b04c9082290fdca30c5,
+        type: 2}
+      choiceDialogueSequence: {fileID: 11400000, guid: 5f663b772bfc3354e8072c8532d59f67,
+        type: 2}
+    - choicePreview: Could you see the bathroom from where you were sitting?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 7021dc857cbe32842876b88e47096d63,
+        type: 2}
+      choiceDialogueSequence: {fileID: 11400000, guid: dedd8ab90307fe8478003db02b3d9ba6,
+        type: 2}
+    - choicePreview: Is there anything else you can tell me?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 44e809e459d82e54582c279bd92b0cc7,
+        type: 2}
+      choiceDialogueSequence: {fileID: 11400000, guid: e761f2d180ceacb4994267614a90d9a7,
+        type: 2}

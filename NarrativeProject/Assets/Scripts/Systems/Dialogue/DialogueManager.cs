@@ -336,9 +336,11 @@ public class DialogueManager : Singleton<DialogueManager>
 
         MaintainDialogue(textUI);
 
-        RunEventsAndChoices();
+        Debug.Log("Running Run Events and Choices");
 
         switchedDialogue = false;
+
+        RunEventsAndChoices();
     }
 
     public IEnumerator MaintainDialogueText(TextMeshProUGUI textUI)

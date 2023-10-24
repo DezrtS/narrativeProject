@@ -19,5 +19,9 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
     dialogueLine: We were best friends. We grew up together.
     dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: b45a0bb9b58652c4689fba71fc3e37dc, type: 2}
   choiceNode:
     choices: []

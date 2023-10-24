@@ -10,19 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
-  m_Name: Steve Argument
+  m_Name: Steve Phone
   m_EditorClassIdentifier: 
-  sequenceID: steve_argument
+  sequenceID: steve_phone
   canSkipSequenceDialogue: 1
   canSkipSequence: 0
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
-    dialogueLine: Oh yeah... I guess I did, during my smoke break I was talking to
-      Elon about his fight with Annie.
+    dialogueLine: Yeah I did. I was telling him to come clean about how he was ripping
+      Annie off.
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
-    dialogueLine: Sorry, I guess I forgot. This murder has put me under a lot of
-      stress.
+    dialogueLine: Even though Elon and I are friends I couldn't sit back and watch
+      him take advantage of her.
     dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
+    dialogueLine: It sucks that it had to turn out this way. Maybe I should have
+      handled things differently.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: b45a0bb9b58652c4689fba71fc3e37dc, type: 2}
   choiceNode:
     choices: []
