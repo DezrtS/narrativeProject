@@ -18,7 +18,8 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: Why would I know? It wasn't me.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 169287827798ce1468beb2ecdf097c6f, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: 
     dialogueEvents:

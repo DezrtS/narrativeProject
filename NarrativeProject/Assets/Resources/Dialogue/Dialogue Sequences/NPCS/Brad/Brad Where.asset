@@ -18,7 +18,8 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: I followed Annie into the bathroom to calm her down.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 64a5afb222bdd244b988f2a33cf927d2, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: She stormed off again after that and I just stayed in the bathroom
       during the power outage.
@@ -28,6 +29,11 @@ MonoBehaviour:
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: I was in the bathroom the entire time.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 83a51b6d1270b054f8e9728ba64c6050, type: 2}
+  - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: 44dd40839e1056e4682be4f38c088008, type: 2}
   choiceNode:
     choices: []

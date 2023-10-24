@@ -18,6 +18,11 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: I'm an architect. I design buildings and help build them.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: e1c459fd7cd8c6845a2f5dc48a752b4f, type: 2}
+  - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: 44dd40839e1056e4682be4f38c088008, type: 2}
   choiceNode:
     choices: []

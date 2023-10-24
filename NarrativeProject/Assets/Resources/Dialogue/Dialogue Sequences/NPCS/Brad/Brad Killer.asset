@@ -18,6 +18,11 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: I'm not sure, they must have had a reason though.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 3e9434b4ecd91134185df90315aaf0f9, type: 2}
+  - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: 44dd40839e1056e4682be4f38c088008, type: 2}
   choiceNode:
     choices: []

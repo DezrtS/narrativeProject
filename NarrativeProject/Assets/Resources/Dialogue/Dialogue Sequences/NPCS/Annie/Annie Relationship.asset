@@ -19,7 +19,8 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: He was my business partner. I would make paintings and he would
       auction them off.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 2986effb624374e45b0ed03c8c104610, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: I got most of the profits and he would take a small cut... Well,
       or so I thought.

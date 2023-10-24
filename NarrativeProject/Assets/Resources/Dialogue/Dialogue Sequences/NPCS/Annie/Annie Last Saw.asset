@@ -19,7 +19,8 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: I last saw Elon during dinner but after our fight I walked away
       so that was the last I saw of him.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 6b91606f008d46d48880f3a6ff19410b, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: 
     dialogueEvents:

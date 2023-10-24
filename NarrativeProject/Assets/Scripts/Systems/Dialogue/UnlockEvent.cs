@@ -5,19 +5,24 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Dialogue/Dialogue Event/Unlock Event")]
 public class UnlockEvent : DialogueEvent
 {
-    [SerializeField] private string unlockId;
+    [SerializeField] private string journalUnlockId;
+    [SerializeField] private Condition condition;
+    [SerializeField] private bool unlockConditionState = true;
 
-    [SerializeField] private bool isForJournal = true;
+    [SerializeField] private bool unlockJournalItem = false;
+    [SerializeField] private bool unlockDialogueCondition = false;
+
 
     public override void TriggerEvent()
     {
-        if (isForJournal)
+        if (unlockJournalItem)
         {
-            NPCStatsManager.Instance.UnlockNPCStat(unlockId);
+            NPCStatsManager.Instance.UnlockNPCStat(journalUnlockId);
         } 
-        else
+        
+        if (unlockDialogueCondition)
         {
-
+            GameManager.Instance.SetCondition(condition, unlockConditionState);
         }
     }
 }

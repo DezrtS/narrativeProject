@@ -22,6 +22,7 @@ public class FMODEventManager : Singleton<FMODEventManager>
 
     [field: Header("Misc SFX")]
     [field: SerializeField] public FMODAudioEvent Invalid { get; private set; }
+    [field: SerializeField] public FMODAudioEvent Writing { get; private set; }
     
     private Dictionary<string, EventReference> eventIDLookup = new Dictionary<string, EventReference>();
 

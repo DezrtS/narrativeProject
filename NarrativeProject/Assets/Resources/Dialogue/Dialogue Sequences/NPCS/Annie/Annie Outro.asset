@@ -18,10 +18,12 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: Is that all?
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 3405ee73421421841b54d91ec78c4050, type: 2}
+    - {fileID: 11400000, guid: 0258ded15ff19024a8d91ab2d7a39767, type: 2}
   choiceNode:
     choices:
-    - choicePreview: Yes
+    - choicePreview: Yes.
       dialogueEvent: {fileID: 0}
       dialogueCondition: {fileID: 0}
       choiceDialogueSequence: {fileID: 0}
@@ -33,7 +35,8 @@ MonoBehaviour:
     - choicePreview: Is there anything you can think of that can be important to
         the case?
       dialogueEvent: {fileID: 0}
-      dialogueCondition: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 7d2185beb795751449b94bc1ccb22582,
+        type: 2}
       choiceDialogueSequence: {fileID: 11400000, guid: 69374d974f57dce4f999f5dd7b6e3893,
         type: 2}
     - choicePreview: What do you do for a living?
@@ -48,6 +51,7 @@ MonoBehaviour:
         type: 2}
     - choicePreview: Who do you think killed Elon?
       dialogueEvent: {fileID: 0}
-      dialogueCondition: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 3c398f298e829ce45a3474a0e1da675d,
+        type: 2}
       choiceDialogueSequence: {fileID: 11400000, guid: c498ff0c721d3b248ac1a7d3fda3b526,
         type: 2}

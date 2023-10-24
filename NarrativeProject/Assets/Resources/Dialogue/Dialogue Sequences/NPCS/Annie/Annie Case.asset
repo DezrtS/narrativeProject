@@ -18,10 +18,12 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: No but, he wasn't a good person.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 3e9f8b536b1aa4f4a90c68daa17fd677, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: Whoever did it, probably had a good reason.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 7fc09a47848d96c469592fb4617c3b06, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: 
     dialogueEvents:

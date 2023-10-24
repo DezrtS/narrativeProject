@@ -19,7 +19,8 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: I'm an artist, I've made many paintings over the years that have
       sold at some fairly high prices.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: f62437847400ac94cbabe55b862aa723, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: fe87b3c580d4b634baf5f5d488321073, type: 2}
     dialogueLine: 
     dialogueEvents:

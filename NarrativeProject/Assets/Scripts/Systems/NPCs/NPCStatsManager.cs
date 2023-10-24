@@ -4,13 +4,14 @@ using UnityEngine;
 
 public enum NPCs
 {
-    Amy,
-    NPC2,
-    NPC3,
-    NPC4,
-    NPC5,
-    NPC6,
-    NPC7,
+    Annie,
+    Brad,
+    Elon,
+    Flan,
+    Lucy,
+    Steve,
+    YourPartner,
+    You,
 }
 
 public class NPCStatsManager : Singleton<NPCStatsManager>
@@ -58,11 +59,14 @@ public class NPCStatsManager : Singleton<NPCStatsManager>
                     return;
                 }
 
+                AudioManager.Instance.PlayOneShot(FMODEventManager.Instance.Writing.EventReference, Vector3.zero);
+
                 NPCstat.Stats.Add(stat);
                 return;
-            }
+            } 
         }
 
+        AudioManager.Instance.PlayOneShot(FMODEventManager.Instance.Writing.EventReference, Vector3.zero);
         statCollections.Add(new NPCStatCollection(stat.StatNPC, new List<NPCStat>() { stat }));
     }
 }

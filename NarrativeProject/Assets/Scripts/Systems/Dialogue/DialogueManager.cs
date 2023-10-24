@@ -44,6 +44,8 @@ public class DialogueManager : Singleton<DialogueManager>
     private Animator choiceBackgroundAnimator;
     private Animator dialogueHolderAnimator;
 
+    private bool switchedDialogue = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -116,9 +118,10 @@ public class DialogueManager : Singleton<DialogueManager>
             }
 
             currentDialogueIndex++;
-            DisplayDialogue(dialogueSpeakerUI, dialogueUI, currentDialogueSequence.DialogueNodes[currentDialogueIndex].DialogueLine);
 
-            currentDialogueSequence.DialogueNodes[currentDialogueIndex].ActivateEvents();
+            //currentDialogueSequence.DialogueNodes[currentDialogueIndex].ActivateEvents();
+
+            DisplayDialogue(dialogueSpeakerUI, dialogueUI, currentDialogueSequence.DialogueNodes[currentDialogueIndex].DialogueLine);
         } 
         else
         {
@@ -143,10 +146,20 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         Debug.Log("Switching Dialogue");
 
+        switchedDialogue = true;
+
         if (dialogueSequence != null)
         {
+            StopAllCoroutines();
+
+            if (isMaintaining)
+            {
+                isMaintaining = false;
+            }
+
             currentDialogueSequence = dialogueSequence;
             currentDialogueIndex = 0;
+
             DisplayDialogue(dialogueSpeakerUI, dialogueUI, currentDialogueSequence.DialogueNodes[currentDialogueIndex].DialogueLine);
         }
         else
@@ -195,6 +208,21 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueEffectManager.SaveOriginalTextPositions(textUI);
 
         StartCoroutine(TypewriterDisplayDialogue(textUI, 0));
+    }
+
+    public void RunEventsAndChoices()
+    {
+        currentDialogueSequence.DialogueNodes[currentDialogueIndex].ActivateEvents();
+
+        if (switchedDialogue)
+        {
+            return;
+        }
+
+        if (currentDialogueIndex == currentDialogueSequence.DialogueNodes.Count - 1 && currentDialogueSequence.ChoiceNode.Choices.Count > 0)
+        {
+            DisplayChoices();
+        }
     }
 
     public void DisplayChoices()
@@ -255,6 +283,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public IEnumerator TypewriterDisplayDialogue(TextMeshProUGUI textUI, int currentIndex)
     {
+
         while (textUI.text.Length > currentIndex)
         {
             for (int i = 0; i < currentIndex; i++)
@@ -301,12 +330,11 @@ public class DialogueManager : Singleton<DialogueManager>
         isTyping = false;
         typingSpeedMultiplier = 1;
 
-        if (currentDialogueIndex == currentDialogueSequence.DialogueNodes.Count - 1 && currentDialogueSequence.ChoiceNode.Choices.Count > 0)
-        {
-            DisplayChoices();
-        }
-
         MaintainDialogue(textUI);
+
+        RunEventsAndChoices();
+
+        switchedDialogue = false;
     }
 
     public IEnumerator MaintainDialogueText(TextMeshProUGUI textUI)

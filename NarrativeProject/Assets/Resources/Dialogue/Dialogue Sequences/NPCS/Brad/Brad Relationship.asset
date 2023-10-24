@@ -21,6 +21,11 @@ MonoBehaviour:
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: We were all friends but Steve and Elon were closer.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 782a7e1d7c0a26c4aa58e3f6c409dbd7, type: 2}
+  - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
+    dialogueLine: 
+    dialogueEvents:
+    - {fileID: 11400000, guid: 44dd40839e1056e4682be4f38c088008, type: 2}
   choiceNode:
     choices: []

@@ -18,6 +18,7 @@ public class DialogueNode
         foreach (DialogueEvent dialogueEvent in dialogueEvents)
         {
             dialogueEvent.TriggerEvent();
+            Debug.Log("Triggering Dialogue Event");
         }
     }
 }
