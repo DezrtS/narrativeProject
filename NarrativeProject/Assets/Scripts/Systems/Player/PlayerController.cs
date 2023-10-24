@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : Singleton<PlayerController>
 {
     [SerializeField] private LayerMask roomTriggerLayer;
+    [SerializeField] private LayerMask interactableLayer;
 
     [SerializeField] private float playerSpeed;
     [SerializeField] private float playerLookSpeed;
@@ -19,7 +20,8 @@ public class PlayerController : Singleton<PlayerController>
     private InputAction mousePosition;
 
     private RoomSelectionTrigger selectedRoom;
-    public bool mapMode = true;
+    public bool mapMode = false;
+    private bool controlsDisabled = true;
     public bool journalMode = false;
     public bool dialogueMode = false;
     public bool interactableMode = false;
@@ -37,11 +39,14 @@ public class PlayerController : Singleton<PlayerController>
     {
         playerInputControls ??= new PlayerInputControls();
 
-        EnableMapControls();
+        //EnableMapControls();
 
         // Convert this to UI Controls
-        playerInputControls.PlayerControls.EnterRoomSelection.performed += OnMapModeSwitch;
-        playerInputControls.PlayerControls.EnterRoomSelection.Enable();
+        //playerInputControls.PlayerControls.EnterRoomSelection.performed += OnMapModeSwitch;
+        //playerInputControls.PlayerControls.EnterRoomSelection.Enable();
+
+        mousePosition = playerInputControls.RoomSelectionControls.Mouse;
+        mousePosition.Enable();
     }
 
     private void OnDisable()
@@ -55,9 +60,12 @@ public class PlayerController : Singleton<PlayerController>
             DisablePlayerControls();
         }
 
+        mousePosition = playerInputControls.RoomSelectionControls.Mouse;
+        mousePosition.Disable();
+
         // Convert this to UI Controls
-        playerInputControls.PlayerControls.EnterRoomSelection.performed -= OnMapModeSwitch;
-        playerInputControls.PlayerControls.EnterRoomSelection.Disable();
+        //playerInputControls.PlayerControls.EnterRoomSelection.performed -= OnMapModeSwitch;
+        //playerInputControls.PlayerControls.EnterRoomSelection.Disable();
     }
 
     private void DisableMapControls()
@@ -80,8 +88,19 @@ public class PlayerController : Singleton<PlayerController>
 
     private void DisablePlayerControls()
     {
+        if (controlsDisabled)
+        {
+            return;
+        }
+
+        controlsDisabled = true;
+
         Cursor.lockState = CursorLockMode.None;
-        crosshair.SetActive(false);
+
+        if (crosshair != null)
+        {
+            crosshair.SetActive(false);
+        }
 
         WASD.Disable();
         mouseDelta.Disable();
@@ -92,6 +111,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void EnablePlayerControls()
     {
+        controlsDisabled = false;
+
         Cursor.lockState = CursorLockMode.Locked;
         crosshair.SetActive(true);
 
@@ -147,12 +168,19 @@ public class PlayerController : Singleton<PlayerController>
             return;
         }
 
-        Debug.Log("Interacted");
+        Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition.ReadValue<Vector2>());
+
+        if (Physics.Raycast(mouseRay, out RaycastHit hit, 50f, interactableLayer, QueryTriggerInteraction.Ignore))
+        {
+            InteractableObject interactableObject = hit.transform.GetComponent<InteractableObject>();
+
+            interactableObject.OnInteract();
+        }
     }
 
     public Vector2 GetMovementInput()
     {
-        if (mapMode || journalMode || dialogueMode || interactableMode)
+        if (mapMode || journalMode || dialogueMode || interactableMode || controlsDisabled)
         {
             return Vector2.zero;
         }
@@ -162,7 +190,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public Vector2 GetRotationInput()
     {
-        if (mapMode || journalMode || dialogueMode || interactableMode)
+        if (mapMode || journalMode || dialogueMode || interactableMode || controlsDisabled)
         {
             return Vector2.zero;
         }
@@ -180,5 +208,17 @@ public class PlayerController : Singleton<PlayerController>
 
         yRotation = Mathf.Clamp(yRotation + -rotationInput.y * (playerLookSpeed * 0.5f) * Time.deltaTime, -80, 80);
         cameraPivot.transform.localEulerAngles = new Vector3(yRotation, 0, 0);
+    }
+
+    private void FixedUpdate()
+    {
+        if (!controlsDisabled && (mapMode || journalMode || dialogueMode || interactableMode))
+        {
+            DisablePlayerControls();
+        } 
+        else if (controlsDisabled && !(mapMode || journalMode || dialogueMode || interactableMode))
+        {
+            EnablePlayerControls();
+        }
     }
 }

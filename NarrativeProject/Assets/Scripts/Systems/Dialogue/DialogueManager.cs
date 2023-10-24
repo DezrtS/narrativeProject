@@ -61,6 +61,8 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void StartDialogueSequence(DialogueSequence dialogueSequence)
     {
+        PlayerController.Instance.dialogueMode = true;
+
         if (!dialogueObject.activeSelf)
         {
             dialogueObject.SetActive(true);
@@ -188,6 +190,8 @@ public class DialogueManager : Singleton<DialogueManager>
             currentDialogueIndex = 0;
             //dialogueObject.SetActive(false);
         }
+
+        PlayerController.Instance.dialogueMode = false;
     }
 
     public void DisplayDialogue(TextMeshProUGUI speakerUI, TextMeshProUGUI textUI, string text)

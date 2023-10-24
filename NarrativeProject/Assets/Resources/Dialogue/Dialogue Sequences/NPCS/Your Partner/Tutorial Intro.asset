@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
+  m_Name: Tutorial Intro
+  m_EditorClassIdentifier: 
+  sequenceID: tutorial_intro
+  canSkipSequenceDialogue: 1
+  canSkipSequence: 0
+  dialogueSequence:
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: We've got a <c(1,0,0,1)>situation</c> here. (Space to Continue)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: We are investigating a homicide that took place at this very establishment.
+      (Space to Continue)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: I've already rounded up the suspects. There were 5 other individuals
+      inside of the house when the murder happened. (Space to Continue)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: The victim's name is Elon. (Space to Continue)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Come on, follow me inside, we've got work to do. (Space to Continue)
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Don't forget to click on me once you get inside. (Space to Continue)
+    dialogueEvents: []
+  choiceNode:
+    choices:
+    - choicePreview: Got it
+      dialogueEvent: {fileID: 11400000, guid: b9af5a40d7941fc498bf3f0ab0196671, type: 2}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}

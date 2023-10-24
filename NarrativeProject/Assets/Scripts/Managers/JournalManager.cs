@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JournalManager : Singleton<JournalManager>
 {
+    [SerializeField] private JournalPageData emptyJournalPageData;
     [SerializeField] private float pageTurnTime = 1;
 
     [SerializeField] private GameObject journalGameobject;
@@ -71,6 +72,25 @@ public class JournalManager : Singleton<JournalManager>
         if (Input.GetKeyDown(KeyCode.T))
         {
             NPCStatsManager.Instance.UnlockNPCStat("initial_clue");
+        }
+    }
+
+    public void AddJournalPage(JournalPageData journalPageData, bool isItem)
+    {
+        int startIndex = 0;
+
+        if (isItem)
+        {
+            startIndex = 15;
+        }
+
+        for (int i = startIndex; i < pageDatas.Count; i++)
+        {
+            if (pageDatas[i] == emptyJournalPageData)
+            {
+                pageDatas.RemoveAt(i);
+                pageDatas.Insert(i, journalPageData);
+            }
         }
     }
 

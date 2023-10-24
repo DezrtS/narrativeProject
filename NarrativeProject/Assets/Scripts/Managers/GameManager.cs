@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private GameObject timer;
+    [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private float timeLimit = 10;
+
     public bool canAskAnnieKillerOpinion;
     public bool canAskBradKillerOpinion;
     public bool canAskFlanKillerOpinion;
@@ -19,6 +24,39 @@ public class GameManager : Singleton<GameManager>
     public bool canAskFlanAboutRats;
     public bool canAskLucyAboutBathroom;
     public bool canAskSteveAboutArgument;
+
+    public bool timerRunning;
+    private float timerTime;
+
+    public void StartTimer()
+    {
+        timer.SetActive(true);
+        timerRunning = true;
+        timerTime = timeLimit;
+    }
+
+    public void LoadNextPart()
+    {
+        TutorialManager.Instance.ProgressTutorial(3);
+    }
+
+    private void Update()
+    {
+        if (timerRunning)
+        {
+            timerTime -= Time.deltaTime;
+            timerText.text = "Time Left: " + Mathf.Round(timerTime).ToString();
+
+            if (timerTime <= 0)
+            {
+                timerText.text = "Time Left: 0";
+                timerRunning = false;
+                LoadNextPart();
+                Debug.Log("Load Stuck in Room");
+            }
+        }
+    }
+
 
     public void SetCondition(Condition condition, bool conditionState)
     {

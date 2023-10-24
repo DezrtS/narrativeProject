@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52020b30e7e09dc4594ca63ff4bc8108, type: 3}
+  m_Name: Tutorial Middle
+  m_EditorClassIdentifier: 
+  sequenceID: 
+  canSkipSequenceDialogue: 1
+  canSkipSequence: 0
+  dialogueSequence:
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Okay great, let me explain things a bit more.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: You see, we are on a bit of a schedule.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Your going to need to solve this case with about a minute of looking
+      around.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Knowing you though, you'll make the right decision.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: There are different items around this house you can interact with.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Use the "Left Mouse Button" to interact with items you are looking
+      at.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Wondering where your going to store all those clues? You should
+      have your journal on you right now.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Use "J" to open and close your journal. Everything you learn will
+      be displayed in the journal.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: That's about it. Be ready to make you decision after the time is
+      up.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: Are you ready? You've got 1 minute starting now.
+    dialogueEvents: []
+  choiceNode:
+    choices:
+    - choicePreview: Okay
+      dialogueEvent: {fileID: 11400000, guid: 204bca9de0250694ba5b31e04356f637, type: 2}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 0}
+    - choicePreview: Wait sorry, can you repeat that over again?
+      dialogueEvent: {fileID: 0}
+      dialogueCondition: {fileID: 0}
+      choiceDialogueSequence: {fileID: 11400000}
