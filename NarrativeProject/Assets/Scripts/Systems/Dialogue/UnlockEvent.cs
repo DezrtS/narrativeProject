@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Dialogue/Unlock Event")]
+[CreateAssetMenu(menuName = "Scriptable Objects/Dialogue/Dialogue Event/Unlock Event")]
 public class UnlockEvent : DialogueEvent
 {
     [SerializeField] private string unlockId;

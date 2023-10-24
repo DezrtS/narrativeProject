@@ -117,6 +117,8 @@ public class DialogueManager : Singleton<DialogueManager>
 
             currentDialogueIndex++;
             DisplayDialogue(dialogueSpeakerUI, dialogueUI, currentDialogueSequence.DialogueNodes[currentDialogueIndex].DialogueLine);
+
+            currentDialogueSequence.DialogueNodes[currentDialogueIndex].ActivateEvents();
         } 
         else
         {
@@ -139,7 +141,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void SwitchToDialogueSequence(DialogueSequence dialogueSequence)
     {
-
+        Debug.Log("Switching Dialogue");
 
         if (dialogueSequence != null)
         {
@@ -299,7 +301,7 @@ public class DialogueManager : Singleton<DialogueManager>
         isTyping = false;
         typingSpeedMultiplier = 1;
 
-        if (currentDialogueIndex == currentDialogueSequence.DialogueNodes.Count - 1)
+        if (currentDialogueIndex == currentDialogueSequence.DialogueNodes.Count - 1 && currentDialogueSequence.ChoiceNode.Choices.Count > 0)
         {
             DisplayChoices();
         }

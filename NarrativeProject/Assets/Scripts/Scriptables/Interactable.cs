@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scriptable Objects/Interactable/Interactable Page")]
 public class Interactable : ScriptableObject
 {
+
     [SerializeField] private string interactableID;
     [SerializeField] private GameObject interactablePagePrefab;
     [SerializeField] private UnlockEvent unlockEvent;
