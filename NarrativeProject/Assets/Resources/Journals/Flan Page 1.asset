@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   journalDataID: flan_page_1
   journalDataTitle: Flan
-  journalDataContent: 
+  journalDataContent: '[NOT IMPLEMENTED]'
   NPC: 3

@@ -23,7 +23,8 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: She stormed off again after that and I just stayed in the bathroom
       during the power outage.
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 48d12df87e546004cbe57e6e52956054, type: 2}
   - dialogueSpeaker: {fileID: 11400000, guid: c4722b29dead11e4abe78c67909e13d2, type: 2}
     dialogueLine: When I left, I ran to see everyone standing around the body.
     dialogueEvents: []

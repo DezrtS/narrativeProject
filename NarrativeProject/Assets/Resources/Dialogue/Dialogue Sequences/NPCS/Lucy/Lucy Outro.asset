@@ -18,7 +18,9 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: d23867d66858d4540a1d24e7a55a3e46, type: 2}
     dialogueLine: Need anything else?
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 5a3073c91e0ee0b42a48b031c433bbfe, type: 2}
+    - {fileID: 11400000, guid: fa14f33286336084ebdca3a2b656cc96, type: 2}
   choiceNode:
     choices:
     - choicePreview: No, that's it.

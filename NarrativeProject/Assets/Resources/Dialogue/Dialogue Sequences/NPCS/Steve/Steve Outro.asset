@@ -18,7 +18,9 @@ MonoBehaviour:
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: 98305a1207c0595449d1d45fbf644cf6, type: 2}
     dialogueLine: Was that all the questions you had?
-    dialogueEvents: []
+    dialogueEvents:
+    - {fileID: 11400000, guid: 3e5e9bd7200baf841a36a46f93670b0b, type: 2}
+    - {fileID: 11400000, guid: 832088583aec6a542ad57641aa6427d8, type: 2}
   choiceNode:
     choices:
     - choicePreview: Yeah that's it.
@@ -42,7 +44,8 @@ MonoBehaviour:
         type: 2}
     - choicePreview: Who do you think did the murder?
       dialogueEvent: {fileID: 0}
-      dialogueCondition: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 9a7a3f3e47887134685b4a6d80b4f927,
+        type: 2}
       choiceDialogueSequence: {fileID: 11400000, guid: 406d3cc5f975fd14286628042cc39346,
         type: 2}
     - choicePreview: Did you send Elon a text message?

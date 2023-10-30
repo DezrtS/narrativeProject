@@ -48,7 +48,7 @@ public class InteractableManager : Singleton<InteractableManager>
     {
         if (Input.GetKeyDown(KeyCode.I) && !animatingPage)
         {
-            DisplayInteractable("debug_interactable");
+            //DisplayInteractable("debug_interactable");
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && !animatingPage)

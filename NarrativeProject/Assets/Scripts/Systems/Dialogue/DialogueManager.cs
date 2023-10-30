@@ -90,7 +90,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            StartDialogueSequence(tempSequence);
+            //StartDialogueSequence(tempSequence);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !PlayerController.Instance.journalMode)

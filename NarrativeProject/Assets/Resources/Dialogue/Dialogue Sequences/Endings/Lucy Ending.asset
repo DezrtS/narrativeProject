@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lucy Ending
   m_EditorClassIdentifier: 
   sequenceID: 
-  canSkipSequenceDialogue: 0
+  canSkipSequenceDialogue: 1
   canSkipSequence: 0
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}

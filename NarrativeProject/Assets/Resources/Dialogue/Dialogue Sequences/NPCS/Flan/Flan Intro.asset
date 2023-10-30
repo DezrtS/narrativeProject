@@ -17,7 +17,7 @@ MonoBehaviour:
   canSkipSequence: 0
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: 6b8c774a10d789c48bedf75d695fbdc8, type: 2}
-    dialogueLine: Whats do you want?
+    dialogueLine: What do you want?
     dialogueEvents: []
   choiceNode:
     choices:
@@ -27,8 +27,7 @@ MonoBehaviour:
       choiceDialogueSequence: {fileID: 0}
     - choicePreview: When did you last see Elon?
       dialogueEvent: {fileID: 0}
-      dialogueCondition: {fileID: 11400000, guid: 14a383706203df34e9d4b24ca4da23aa,
-        type: 2}
+      dialogueCondition: {fileID: 0}
       choiceDialogueSequence: {fileID: 11400000, guid: 995c3a1bf742cc4438c47d95ee52be8e,
         type: 2}
     - choicePreview: Who do you think did it?
@@ -50,6 +49,7 @@ MonoBehaviour:
         type: 2}
     - choicePreview: Is there anything important to the case you can tell me?
       dialogueEvent: {fileID: 0}
-      dialogueCondition: {fileID: 0}
+      dialogueCondition: {fileID: 11400000, guid: 2cd73115b4f6e874195261d5d37b6207,
+        type: 2}
       choiceDialogueSequence: {fileID: 11400000, guid: 0a9b29f89489db54fac28b39e767d5de,
         type: 2}

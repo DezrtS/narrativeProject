@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Brad Ending
   m_EditorClassIdentifier: 
   sequenceID: 
-  canSkipSequenceDialogue: 0
+  canSkipSequenceDialogue: 1
   canSkipSequence: 0
   dialogueSequence:
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
     dialogueLine: ...
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
-    dialogueLine: I knew <c(1,0,01)>You</c> could do it.
+    dialogueLine: I knew <c(1,0,0,1)>You</c> could do it.
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: 4f382e7eacb8dd043b5b72a84a4ac8bf, type: 2}
     dialogueLine: Brad was caught.

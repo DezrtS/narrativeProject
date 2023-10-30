@@ -26,6 +26,8 @@ public class PlayerController : Singleton<PlayerController>
     public bool dialogueMode = false;
     public bool interactableMode = false;
 
+    public bool transitionMode = false;
+
     private float yRotation = 0;
 
     private CharacterController characterController;
@@ -163,14 +165,14 @@ public class PlayerController : Singleton<PlayerController>
 
     public void OnInteract(InputAction.CallbackContext obj)
     {
-        if (journalMode || interactableMode || dialogueMode)
+        if (journalMode || interactableMode || dialogueMode || transitionMode)
         {
             return;
         }
 
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition.ReadValue<Vector2>());
 
-        if (Physics.Raycast(mouseRay, out RaycastHit hit, 50f, interactableLayer, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(mouseRay, out RaycastHit hit, 7f, interactableLayer, QueryTriggerInteraction.Ignore))
         {
             InteractableObject interactableObject = hit.transform.GetComponent<InteractableObject>();
 
@@ -206,7 +208,7 @@ public class PlayerController : Singleton<PlayerController>
         characterController.Move((transform.right * currentInput.x + transform.forward * currentInput.y) * playerSpeed * Time.deltaTime);
         transform.eulerAngles += new Vector3(0, rotationInput.x * playerLookSpeed * Time.deltaTime, 0);
 
-        yRotation = Mathf.Clamp(yRotation + -rotationInput.y * (playerLookSpeed * 0.5f) * Time.deltaTime, -80, 80);
+        yRotation = Mathf.Clamp(yRotation + -rotationInput.y * (playerLookSpeed * 0.8f) * Time.deltaTime, -80, 80);
         cameraPivot.transform.localEulerAngles = new Vector3(yRotation, 0, 0);
     }
 

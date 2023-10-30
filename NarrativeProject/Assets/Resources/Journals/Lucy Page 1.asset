@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   journalDataID: Lucy_page_1
   journalDataTitle: Lucy
-  journalDataContent: 
+  journalDataContent: '[NOT IMPLEMENTED]'
   NPC: 4

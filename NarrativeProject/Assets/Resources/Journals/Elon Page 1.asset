@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   journalDataID: elon_page_1
   journalDataTitle: Elon
-  journalDataContent: 
+  journalDataContent: '[NOT IMPLEMENTED]'
   NPC: 2

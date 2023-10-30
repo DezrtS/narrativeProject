@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ab84f4df28a656498be056c50b08728, type: 3}
-  m_Name: Lipstick Page
+  m_Name: Vent Page
   m_EditorClassIdentifier: 
-  interactableID: lipstick
-  interactablePagePrefab: {fileID: 5277985624822527642, guid: 085fccae2a97a8340b24db7a8d23fcb9,
+  interactableID: vent
+  interactablePagePrefab: {fileID: 4839662891061286800, guid: a7ef65e090c6cf34ab5a2e45bb0c5bef,
     type: 3}
   unlockEvent: {fileID: 0}

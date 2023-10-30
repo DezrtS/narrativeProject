@@ -23,8 +23,8 @@ MonoBehaviour:
     dialogueLine: You see, we are on a bit of a schedule.
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
-    dialogueLine: Your going to need to solve this case with about a minute of looking
-      around.
+    dialogueLine: Your going to need to solve this case with about a 2 minutes of
+      looking around.
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
     dialogueLine: Knowing you though, you'll make the right decision.
@@ -35,6 +35,10 @@ MonoBehaviour:
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
     dialogueLine: Use the "Left Mouse Button" to interact with items you are looking
       at.
+    dialogueEvents: []
+  - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
+    dialogueLine: When you interact with something, you'll know if it's important.
+      Something will pop up telling you more about it.
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
     dialogueLine: Wondering where your going to store all those clues? You should
@@ -49,7 +53,7 @@ MonoBehaviour:
       up.
     dialogueEvents: []
   - dialogueSpeaker: {fileID: 11400000, guid: f8ad48c5b9f601544a897552421a29f7, type: 2}
-    dialogueLine: Are you ready? You've got 1 minute starting now.
+    dialogueLine: Are you ready? You've got 2 minutes starting now.
     dialogueEvents: []
   choiceNode:
     choices:

@@ -93,8 +93,11 @@ public class TutorialManager : Singleton<TutorialManager>
     public IEnumerator ProgressTutorialStage(Vector3 position)
     {
         TriggerBlock(true);
+        PlayerController.Instance.transitionMode = true;
 
         yield return new WaitForSeconds(2f);
+
+        PlayerController.Instance.transitionMode = false;
 
         partner.transform.position = position;
         TriggerBlock(false);

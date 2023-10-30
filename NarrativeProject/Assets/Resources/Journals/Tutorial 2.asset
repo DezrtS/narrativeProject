@@ -16,8 +16,8 @@ MonoBehaviour:
   journalDataTitle: 
   journalDataContent: '[Gameplay]
 
-    You get 1 minute to search around the house
+    You get 2 minutes to search around the house
     looking for items you can interact with. Interacted items will create journal
     entries where you can learn more about them. Try to focus more on quickly picking
     up evidence rather than taking your time to look things over. You''ll get more
-    time to look through all your journal entries after your 1 minute is up.'
+    time to look through all your journal entries after your 2 minutes are up.'
